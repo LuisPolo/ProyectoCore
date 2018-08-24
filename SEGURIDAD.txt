@@ -1,0 +1,63 @@
+Name: dsPrueba
+JNDI: java:/dsPrueba
+
+Connection URL: jdbc:as400://10.219.64.223:446/INTEGRA1;libraries=MINTDAT,MINTPRO
+
+user-name:SP0055 
+
+password:SURAPERU55
+
+
+
+[{"key":"codUsuario","value":"4669174601"}]
+[{"key":"codRol","value":"735"}]
+
+[{"key":"Content-Type","value":"application/x-www-form-urlencoded","description":""}]
+
+autorizacion
+Bearer
+eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJ3d3cuaW50ZWdyYS5wZSIsImlhdCI6MTUzNDE5MzI1MSwiZXhwIjoxNTM0MTk2ODUxfQ.8Wf_stINRjBMvfkmNVEtWzUHPgcXG8Dtn4_WOqwLRvESWCKQjrhLgy1BQODy1WkUXOke3Be5oE0hEM5AnYzr1w
+
+
+import com.integra.generadorreporte.util.NombreProcedure;
+
+Usuario: dev-wccucho
+Clave: V5ctQ$4xD0nMB
+
+
+http://10.219.65.60:9990/console/App.html
+http://10.219.64.31:8080/console/App.html
+ 
+Usuario: dev-wccucho
+Clave: V5ctQ$4xD0nMB
+	
+jdbc:as400://10.219.64.224:446/INTEGRA;libraries=PENSDAT,INTEGRA
+
+jdbc:as400://10.219.64.223/INTEGRA1;libraries=MINTDAT,MINTPRO
+SP0049
+DEV1SURA
+
+Ademas del uso del WAF que otras herramientas se puede usar.
+El Data Power su mision es como un api gateway, y es para controlar todos los ataquees a nivel de los servicios.
+CAAS: Container as a service
+Virtualizar todo lo que es el computo (CPU, memoria, discos, etc). En otros lados ya se esta virtualizando la red, al costado del hipervisor van a poner un hipervisor de redes,
+aca el tema de los balanceadores ruteadores firewall son virtuales. El HPVR ya no depende mucho de los equipos de redes (Temas de permisos para ir de una DMZ a otra). Que la gente de redes se dedique a la seccion del trafico. En oracle cloud (Prima), redes otorgan un rango de IP y nostros gestionamos los permisos y el equipo de redes ya no participa. Tambien te permite configurar puertos. ¿?
+To be kadabra es una empresa de SAAS. El costo de operacion de kadabra: La idea es eliminar la parte de operacion de la gente de redes. Instalo una aplicacio n y el core debe dejar informacion en esa aplicacion. Esta administracion la hace por el hipervisor (En la nube es natural). en el oracle cloud machine viene de manera nativa. La idea es que la capacidad este considerada.
+
+Cuando se comience a cosntruir el core se hara las segmentaciones.La parte front del core es interna y no deberia estar aqui. Solo va a dejar el balanceador que va a exponer los apis para los canales. Lo de integra prima y externos de frente a la vlan de aplicacion. Solo se deja el canal de internet para que entre por la capa de presentacion.
+Las capacidades de los balanceadores firewall y waf (Mandar herramientas ademas del waf Antidos y antimalware).
+El AD por el momento esta en onmpremise.ñ Si hay alguna federacion el AD ompremise deberia federar con el AD de la nube.
+La base de datos lo balanceamos con un balanceador pero en el caso de oracle tiene un scan que hace el balanceo. Se crea un contexto de balanceo que lo haga por http o jdbc. Dependiendo de la base de datos escogidas esta parte puede ser modificada. El balanceador tiene varios contextos. PAra los servidores de aplicaciones web logic tiene un cluster de balanceo asociada a una Virtual IP. La politica tiene que balancear todo (exadata - Prima Oracle). Alta disponibilidad en el mismo site. El DRP no tiene alta disponibilidad. Prima no tiene alta disponibilidad pero si tiene DRP.
+Marcos normativos.
+Identificar capacidades del core (desarrolladas por el core) y no core (Cuales tienen que existir)
+Manejo del patron para el acceso a interfaces. Que seguridad se maneja. El acceso a entidades es a nivel de roles. Seguridad a nivel de servicios. Seguridad a nivel de servidores. ¿Como un servicio es llamado por el api gateway? Por lista blanca de IP se puede poner que ningun otro elemento que venga va a ser rechazado. Quien me va a consumir vas a venir con una lista de cabeceras (Validacion de esquemas).
+Incluir las herramientas sugeridas por prima.
+El grafico perimetral moverlo
+Se utiliza el WAF para la capa del front end. No se ha considerado el antimalware porque cubre el sql injection. No cubre el tema de denegación de servicio. El waf solo protege de todo el owasp Top 10. No solo debe verse el WAF sino otras herramientas de bloqueo (Anti DOS, Antimalware). Por política de Credicorp se tiene antidos, antimalware WAF, etc. El trafico que viaja es solo RESt. Caules son las capacidades propias del core que tengo que desarrolla (Ejemplo auditoria). La autenticacion si es con AD va por otro lado. Es por fuera del core. Se debe pintar en otro color cuales son las capacidades propias a desarrollar del core. Si digo WAF no es core es otra cosa, y se podria buscar otras herramientas. Unico usuario para multiples base de datos, seguridad auduitoria a niel transaccion a nivel de consumo del REst son cosas propias del core.
+IAM Identity acces managment.
+La seguridad VPS MPLS. 
+Marcos normativos y tecnicos que es lo que exactamente se va a poner (Esto se pondra a nivel del documento). 
+Database voult es para acceso de datos sensibles de los dba a la base de datos.
+En prima tienen guardian y alli se definen las reglas para el acceso de data sensible. Te guarda todos los logs de acuerdo a lo que tu definas. Se pueden reestringir objetos de negocio?
+
+ 
